@@ -1,7 +1,8 @@
 package projetopoo;
 
-import projetopoo.dominio.Curso;
-import projetopoo.dominio.Mentoria;
+import projetopoo.dominio.conteudo.Conteudo;
+import projetopoo.dominio.conteudo.Curso;
+import projetopoo.dominio.conteudo.Mentoria;
 
 import java.time.LocalDate;
 
@@ -22,10 +23,34 @@ public class Main {
         mentoria1.setDescricao("ipsum lorem");
         mentoria1.setData(LocalDate.now());
 
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java");
+        bootcamp.setDescricao("lorem lorem");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria1);
+
+        Dev laisson = new Dev();
+        laisson.setNome("Laisson");
+        laisson.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos inscritos " + laisson.getConteudosInscritos());
+        laisson.progredir();
+        System.out.println("Conteudos inscritos " + laisson.getConteudosInscritos());
+        System.out.println("Conteudos concluidos " + laisson.getConteudosInscritos());
 
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria1);
+        System.out.println("------------------------------");
+        Dev sicrano = new Dev();
+        sicrano.setNome("Sicrano");
+        sicrano.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos inscritos " + sicrano.getConteudosInscritos());
+        System.out.println("Conteudos inscritos " + sicrano.getConteudosInscritos());
+        sicrano.progredir();
+        System.out.println("Conteudos inscritos " + sicrano.getConteudosInscritos());
+        System.out.println("Conteudos concluidos " + sicrano.getConteudosInscritos());
+
+
+
+
     }
 }
